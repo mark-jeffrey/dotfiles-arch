@@ -9,5 +9,8 @@ return {
 	config = function()
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
 		vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
-	end,
+    vim.keymap.set("n", "<leader>r", function()
+      require("neo-tree.command").execute({
+        toggle = true, source = "filesystem", position = "left"}) end, {})
+  end,
 }
