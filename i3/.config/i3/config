@@ -14,6 +14,7 @@ for_window [class="^.*"] border pixel 1
 set $mod Mod4
 # set $mod Mod1
 
+exec --no-startup-id ~/dotfiles-arch/display/set_resolution.sh
 exec --no-startup-id picom
 exec --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
 exec --no-startup-id xrdb -merge ~/.Xresources
@@ -21,6 +22,9 @@ exec --no-startup-id xrdb -merge ~/.Xresources
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
+# set keymap
+exec_always --no-startup-id setxkbmap -layout gb
 
 bindsym Print exec maim "/home/$USER/Pictures/$(date).jpg"
 bindsym $mod+Print exec maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).jpg"
